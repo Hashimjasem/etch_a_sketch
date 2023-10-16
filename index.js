@@ -1,6 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
-getSize()
-// createGrid(32)
+createGrid(16)
+
+let btn_popup = document.querySelector("#popup");
+btn_popup.addEventListener("click", function(){
+    let size = getSize
+    createGrid(size)
+})
 console.log('loaded')
 
 })
@@ -13,16 +18,15 @@ console.log('loaded')
 function createGrid(size) {
     let grid = document.querySelector('.grid');
 
-    grid.getElementsByClassName.gridTemplateColumns = `repeat(${size}, 1fr)`
-    grid.getElementsByClassName.gridTemplateRows = `repeat(${size}, 1fr)`
+    grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`
+    grid.style.gridTemplateRows = `repeat(${size}, 1fr)`
 
-    for (var rows = 0; rows < size; rows++) {
-        for (var columns = 0; columns < size; columns++) {
+    let numDivs = size * size;
+
+    for (var i = 0; i < numDivs; i++) {
             let div = document.createElement("div");
-            div.style.backgroundColor = "yellow"
+            div.style.backgroundColor = "yellow";
             grid.insertAdjacentElement("beforeend", div)
-
-        };
     };
 };
 
@@ -32,30 +36,10 @@ function getSize(){
     if (input == ""){
         message.innerHTML = "Please provide a number"    }
     else if(input < 0 || input < 100) {
-        createGrid(size)
+        message.innerHTML = "please provide a numer between 1 - 100"
+    }
+    else{
+        message.innerHTML = "thank you"
+        return input
     }
 }
-
-// function clearGrid() {
-//     box.remove();
-// };
-
-// function refreshGrid() {
-//     var z = prompt("How many boxes per side?");
-//     clearGrid();
-//     createGrid(z);
-// };
-
-// createGrid(20);
-
-// box.mouseover(function () {
-//     this.css("background-color", "black");
-// });
-
-// $(".newGrid").click(function () {
-//     refreshGrid();
-
-//     box.mouseover(function () {
-//         this.css("background-color", "black");
-//     });
-// });
