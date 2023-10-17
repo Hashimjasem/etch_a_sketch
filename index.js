@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     createGrid(16)
 
+
+
+
     let btn_popup = document.querySelector("#popup");
 
     btn_popup.addEventListener("click", function () {
@@ -10,11 +13,23 @@ document.addEventListener("DOMContentLoaded", function () {
         } 
         let size = getSize()
         createGrid(size)
+
+        
     })
     console.log('loaded')
 
-})
 
+
+
+
+
+
+    let btn_reset = document.getElementById("#reset");
+
+    btn_reset.addEventListener("click", function () {
+
+    })
+})
 
 
 
