@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
     let btn_popup = document.querySelector("#popup");
 
     btn_popup.addEventListener("click", function () {
+        let grid = document.querySelector('.grid');
+        while (grid.firstChild) {
+            grid.removeChild(grid.firstChild)
+        } 
         let size = getSize()
         createGrid(size)
     })
@@ -26,7 +30,10 @@ function createGrid(size) {
 
     for (var i = 0; i < numDivs; i++) {
         let div = document.createElement("div");
-        div.style.backgroundColor = "yellow";
+        div.style.border = "solid black 2px";
+        div.addEventListener("click", function () {
+            div.style.backgroundColor = "black";
+        })
         grid.insertAdjacentElement("beforeend", div)
     };
 };
@@ -44,4 +51,13 @@ function getSize() {
         this.message.innerHTML = "thank you"
         return input;
     }
+}
+
+function colourIn() {
+    //when any child of the grid is clicked it changes colour to black
+    let grid = document.querySelector('.grid');
+    box = grid.children
+    box.addEventListener("click", function () {
+        box.style.backgroundColor = "black";
+    })
 }
